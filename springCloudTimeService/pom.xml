@@ -4,26 +4,17 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.liuen.springCloud</groupId>
-	<artifactId>springcloudlearning</artifactId>
+	<artifactId>springcloudtimeservice</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>pom</packaging>
+	<packaging>jar</packaging>
 
-	<modules>
-		<module>springCloudConfig</module>
-		<module>springCloudConfigClient</module>
-		<module>springCloudEurekaServer</module>
-		<module>springCloudTimeService</module>
-		<module>springCloudTimeClient</module>
-	</modules>
-
-	<name>springCloudLearning</name>
+	<name>springCloudTimeService</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.9.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<groupId>com.liuen.springCloud</groupId>
+		<artifactId>springcloudlearning</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
 	<properties>
@@ -33,18 +24,26 @@
 		<spring-cloud.version>Edgware.SR1</spring-cloud.version>
 	</properties>
 
+	<dependencies>
+<!--		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>-->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-eureka</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-eureka-server</artifactId>
+		</dependency>
 
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>${spring-cloud.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<plugins>

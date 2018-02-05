@@ -1,0 +1,9 @@
+name: haha
+#即使在这里配置了name，但是bootstrap中依然有更高的优先级。在代码中输出的依然会是configserver中的配置
+# Bootstrap properties are added with high precedence, so they cannot be overridden by local configuration, by default.
+server:
+  port: 8080
+endpoints:
+  refresh:
+    enabled: true
+    sensitive: false

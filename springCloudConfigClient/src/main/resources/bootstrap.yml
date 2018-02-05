@@ -1,0 +1,16 @@
+#It is a good idea to set the spring.application.name (in bootstrap.yml or application.yml)
+#if your application needs any application-specific configuration from the server.
+spring:
+  cloud:
+      config:
+        uri: http://localhost:8083   #貌似把这一段配置在application中无法读取到。建议将cloud的boot相关配置写在bootstrap中
+        fail-fast: true
+        retry:
+          max-attempts:     # 快速失败，将无法启动
+  application:
+    name: configClient
+  profiles:
+    active: dev
+  #This is the default behaviour for any application which has the Spring Cloud Config Client on the classpath.
+  #When a config client starts up it binds to the Config Server
+  #(via the bootstrap configuration property spring.cloud.config.uri) and initializes Spring Environment with remote property sources.

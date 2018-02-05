@@ -1,14 +1,15 @@
 server:
-  port: 8080
+  port: 8083
 spring:
   application:
-    name: springCloudConfig
+    name: springCloudConfigServer
   cloud:
     config:
       server:
         git:
-          uri: F:///git/config-repo
+          uri: https://github.com/justlikeliuen/config-repo.git
           clone-on-start: true
+      override-none: true
 #The HTTP service has resources in the form:
 # /{application}/{profile}[/{label}]
 # /{application}-{profile}.yml
