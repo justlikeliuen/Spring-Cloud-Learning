@@ -22,4 +22,8 @@ public class TimeService {
         System.out.println(1);
         return jdbcTemplate.queryForList("select * from actor");
     }
+
+    public String selectTest(String name){
+        return name;
+    }
 }

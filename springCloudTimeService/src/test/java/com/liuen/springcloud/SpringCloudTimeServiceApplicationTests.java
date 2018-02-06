@@ -1,6 +1,7 @@
 package com.liuen.springcloud;
 
 import com.liuen.springcloud.controller.TimeController;
+import com.liuen.springcloud.service.TimeService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,10 +15,10 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.BDDMockito.given;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@WebMvcTest
 public class SpringCloudTimeServiceApplicationTests {
 
 
@@ -30,9 +31,20 @@ public class SpringCloudTimeServiceApplicationTests {
 
 	@Autowired
 	private TestRestTemplate restTemplate;
+	@Autowired
+	private TimeService timeService;
 
+	@Test
 	public void exampleTest() {
 		String body = this.restTemplate.getForObject("/", String.class);
 		assertThat(body).isEqualTo("Hello World");
+	}
+
+	@Test
+	public void timeService() {
+		// RemoteService has been injected into the reverser bean
+		given(this.timeService.selectTest("mock")).willReturn("mock");
+		String reverse = timeService.selectTest("mock");
+		assertThat(reverse).isEqualTo("mock");
 	}
 }

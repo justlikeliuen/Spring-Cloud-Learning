@@ -1,8 +1,0 @@
-server:
-  port: 8088
-spring:
-  datasource:
-    url: jdbc:mysql://localhost:3306/sakila?characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
-    password: sung_123
-    username: root
-    driver-class-name: com.mysql.jdbc.Driver
