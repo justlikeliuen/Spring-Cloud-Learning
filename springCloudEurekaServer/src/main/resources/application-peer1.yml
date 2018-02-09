@@ -1,0 +1,15 @@
+server:
+  port: 8085
+
+eureka:
+  instance:
+    hostname: localhost     #需要在hosts文件中作出映射
+  client:
+    registerWithEureka: true   #在服务端禁止自注册行为By default, the registry will also attempt to register itself, so you’ll need to disable that, as well.
+    fetchRegistry: true
+    service-url:
+      defaultZone: "http://localhost:8086/eureka/"
+    #    serviceUrl指向与本地实例相同的主机。
+spring:
+  application:
+    name: eurekaServer

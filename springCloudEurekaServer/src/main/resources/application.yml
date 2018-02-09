@@ -1,17 +1,15 @@
 server:
-  port: 8085
+  port: 8084
 
 eureka:
   instance:
     hostname: localhost
   client:
-    registerWithEureka: false
+    registerWithEureka: false   #在服务端禁止自注册行为By default, the registry will also attempt to register itself, so you’ll need to disable that, as well.
     fetchRegistry: false
-#    service-url:
-#      defaultZone: "http://${eureka.instance.hostname}:${server.port}/eureka/"
-#    service-url: http://${eureka.instance.hostname}:${server.port}/eureka/
+    service-url:
+      defaultZone: "http://${eureka.instance.hostname}:${server.port}/eureka/"
     #    serviceUrl指向与本地实例相同的主机。
-        #By default, the registry will also attempt to register itself, so you’ll need to disable that, as well.
 spring:
   application:
     name: eurekaServer

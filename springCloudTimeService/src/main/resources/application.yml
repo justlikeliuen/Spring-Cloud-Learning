@@ -1,8 +1,26 @@
 server:
-  port: 8087
+  port: 8088
 spring:
-  datasource:
+  datasource:  #mysql 5.7.14
     url: jdbc:mysql://localhost:3306/sakila?characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
     password: sung_123
     username: root
     driver-class-name: com.mysql.jdbc.Driver
+debug: true
+endpoints:
+  actuator:
+    enabled: true
+    path: actuator
+    sensitive: false
+  autoconfig:
+    enabled: true
+    sensitive: false
+  info:
+    enabled: true
+    sensitive: false
+  env:
+    enabled: true   #开启enable和sensitive 才会开启端点
+    sensitive: false
+  metrics:
+    enabled: true
+    sensitive: false
