@@ -2,7 +2,7 @@
 #if your application needs any application-specific configuration from the server.
 spring:
   application:
-    name: timeService
+    name: timeClient
   profiles:
     active: dev
   #This is the default behaviour for any application which has the Spring Cloud Config Client on the classpath.
@@ -11,8 +11,8 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://peer1:8085/eureka/,http://peer2:8086/eureka/
-    fetch-registry: true     #to commect to eureka server and fetch service url
-    registerWithEureka: true
+      defaultZone: http://localhost:8085/eureka/      #to commect to eureka server and fetch service url
+      fetch-registry: true     #to commect to eureka server and fetch service url
+      registerWithEureka: true
   instance:
-    virtual-host-name: eureka.timeService.net
+    virtual-host-name: eureka.timeClient.net
