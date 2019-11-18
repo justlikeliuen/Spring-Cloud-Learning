@@ -1,12 +1,12 @@
 package com.liuen.springcloud.controller;
 
+import com.liuen.springcloud.dao.UserRepo;
+import com.liuen.springcloud.entity.User;
 import com.liuen.springcloud.service.TimeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.client.ServiceInstance;
-import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -22,6 +22,8 @@ import java.util.Map;
 public class TimeController {
     @Autowired
     TimeService timeService;
+    @Autowired
+    private UserRepo userRepo;
 
     @RequestMapping("/select/{name}")
     public List<Map<String,Object>> select(
@@ -40,7 +42,12 @@ public class TimeController {
         return "Hello World";
     }
 
-    @Autowired
+    @GetMapping("/{id}")
+    public User findById(@PathVariable Long id){
+        return userRepo.findById(id).get();
+    }
+
+/*    @Autowired
     private DiscoveryClient discoveryClient;
 
     @RequestMapping("/service-instances/{applicationName}")
@@ -48,5 +55,5 @@ public class TimeController {
             @PathVariable String applicationName) {
         List<ServiceInstance> list = this.discoveryClient.getInstances(applicationName);;
         return this.discoveryClient.getInstances(applicationName);
-    }
+    }*/
 }

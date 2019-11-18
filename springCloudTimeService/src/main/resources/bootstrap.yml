@@ -1,18 +1,18 @@
 #It is a good idea to set the spring.application.name (in bootstrap.yml or application.yml)
 #if your application needs any application-specific configuration from the server.
-spring:
-  application:
-    name: timeService
-  profiles:
-    active: dev
-  #This is the default behaviour for any application which has the Spring Cloud Config Client on the classpath.
-  #When a config client starts up it binds to the Config Server
-  #(via the bootstrap configuration property spring.cloud.config.uri) and initializes Spring Environment with remote property sources.
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://peer1:8085/eureka/,http://peer2:8086/eureka/
-    fetch-registry: true     #to commect to eureka server and fetch service url
-    registerWithEureka: true
-  instance:
-    virtual-host-name: eureka.timeService.net
+#spring:
+#  application:
+#    name: timeService
+#  profiles:
+#    active: dev
+#  #This is the default behaviour for any application which has the Spring Cloud Config Client on the classpath.
+#  #When a config client starts up it binds to the Config Server
+#  #(via the bootstrap configuration property spring.cloud.config.uri) and initializes Spring Environment with remote property sources.
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://peer1:8085/eureka/,http://peer2:8086/eureka/
+#    fetch-registry: true     #to commect to eureka server and fetch service url
+#    registerWithEureka: true
+#  instance:
+#    virtual-host-name: eureka.timeService.net

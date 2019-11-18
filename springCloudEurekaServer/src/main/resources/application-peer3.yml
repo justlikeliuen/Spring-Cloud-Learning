@@ -2,14 +2,14 @@ spring:
   application:
     name: eurekaServer
 server:
-  port: 18085
+  port: 18087
 
 eureka:
   instance:
-    hostname: peer1   #需要在hosts文件中作出映射
+    hostname: peer3   #需要在hosts文件中作出映射
 #    prefer-ip-address: true
   client:
     service-url:
-      defaultZone: "http://peer2:18086/eureka/,http://peer3:18087/eureka/"
+      defaultZone: "http://peer1:18085/eureka/,http://peer2:18086/eureka/"
     #    serviceUrl指向与本地实例相同的主机。
 

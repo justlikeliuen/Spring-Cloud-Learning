@@ -1,26 +1,34 @@
 server:
   port: 8088
 spring:
-  datasource:  #mysql 5.7.14
-    url: jdbc:mysql://localhost:3306/sakila?characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
-    password: sung_123
-    username: root
-    driver-class-name: com.mysql.jdbc.Driver
-debug: true
-endpoints:
-  actuator:
-    enabled: true
-    path: actuator
-    sensitive: false
-  autoconfig:
-    enabled: true
-    sensitive: false
-  info:
-    enabled: true
-    sensitive: false
-  env:
-    enabled: true   #开启enable和sensitive 才会开启端点
-    sensitive: false
-  metrics:
-    enabled: true
-    sensitive: false
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  datasource:
+    platform: h2
+    schema: classpath:schema.sql
+    data: classpath:data.sql
+  application:
+    name: TimeService
+
+
+logging:
+  level:
+    root: info
+    org.hibernate: info
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+    org.hibernate.type.descriptor.sql.BasicExtractor: trace
+management:
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        include: "*"
+eureka:
+  client:
+    service-url:
+      defaultZone: http://peer1:18085/eureka/,http://peer2:18086/eureka/,http://peer3:18087/eureka/
+  instance:
+    prefer-ip-address: true
