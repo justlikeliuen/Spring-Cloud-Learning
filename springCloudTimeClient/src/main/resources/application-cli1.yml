@@ -1,0 +1,15 @@
+server:
+  port: 8010
+spring:
+  application:
+    name: TimeClient
+
+eureka:
+  client:
+    service-url:
+      fetch-registry: false
+      registerWithEureka: false
+      defaultZone: http://peer1:18085/eureka/,http://peer2:18086/eureka/,http://peer3:18087/eureka/
+  instance:
+    prefer-ip-address: true
+    virtual-host-name: eureka.timeClient.net
