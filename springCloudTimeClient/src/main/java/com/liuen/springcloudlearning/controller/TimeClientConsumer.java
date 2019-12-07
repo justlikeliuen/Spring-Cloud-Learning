@@ -1,6 +1,8 @@
 package com.liuen.springcloudlearning.controller;
 
 import com.liuen.springcloudlearning.po.User;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
@@ -31,10 +33,7 @@ public class TimeClientConsumer {
         return restTemplate.getForEntity("http://TIMESERVICE/hello",String.class).getBody();
     }
 
-    @GetMapping("/user/{id}")
-    public User find(@PathVariable Long id){
-        return restTemplate.getForObject("http://TIMESERVICE/"+id, User.class);
-    }
+
 
     @GetMapping("/log-user-instance")
     public void logUserInstance(){
