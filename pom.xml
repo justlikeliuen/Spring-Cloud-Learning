@@ -15,6 +15,7 @@
 		<module>springCloudTimeService</module>
 		<module>springCloudTimeClient</module>
 		<module>springCloudHystrixDashboard</module>
+		<module>gateway-zuul</module>
 	</modules>
 
 	<name>springCloudLearning</name>

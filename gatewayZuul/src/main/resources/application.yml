@@ -1,0 +1,18 @@
+server:
+  port: 8012
+
+spring:
+  application:
+    name: gateway-zuul
+eureka:
+  client:
+    service-url:
+      defaultZone: http://peer1:18085/eureka/,http://peer2:18086/eureka/,http://peer3:18087/eureka/
+    fetch-registry: true
+    register-with-eureka: true
+debug: true
+zuul:
+  routes:
+    api-a:
+      path: /timeClient/**
+      serviceId: TIMECLIENT
